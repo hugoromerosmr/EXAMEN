@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Item</title>
+    <link rel="stylesheet" href="/stylesdetails.css">
+</head>
+<body>
+    <h1>Detalles del Item</h1>
+    <div class="details-container" th:if="${item != null}">
+        <p><strong>Nombre:</strong> <span th:text="${item.title}"></span></p>
+        <p><strong>Precio:</strong> <span th:text="${item.price}"></span></p>
+        <p><strong>Categoría:</strong> <span th:text="${item.category}"></span></p>
+        <p><strong>Descripción:</strong> <span th:text="${item.description}"></span></p>
+        <p><strong>Puntuación:</strong> <span th:text="${item.rate}"></span></p>
+        <p><strong>Cantidad:</strong> <span th:text="${item.count}"></span></p>
+        <p><strong>Imagen:</strong> <img th:src="${item.image}" alt="Imagen del item"></p>
+    </div>
+    <div class="details-container not-found" th:if="${item == null}">
+        <p>Item no encontrado.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="Productos" language="java"
+			  pageWidth="595" pageHeight="842" columnWidth="555"
+			  leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+			  uuid="b47396a6-48c1-4730-b992-266f78db87e3">
+
+	<parameter name="Usuario" class="java.lang.Integer"/>
+
+	<field name="id" class="java.lang.String"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="price" class="java.lang.Double"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="category" class="java.lang.String"/>
+
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Productos]]></text>
+			</staticText>
+		</band>
+	</title>
+
+	<columnHeader>
+		<band height="25">
+			<staticText><reportElement x="0" y="0" width="100" height="25"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText><reportElement x="100" y="0" width="150" height="25"/>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText><reportElement x="250" y="0" width="100" height="25"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText><reportElement x="350" y="0" width="100" height="25"/>
+				<text><![CDATA[Categoría]]></text>
+			</staticText>
+			<staticText><reportElement x="450" y="0" width="105" height="25"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+
+	<detail>
+		<band height="25">
+			<textField><reportElement x="0" y="0" width="100" height="25"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField><reportElement x="100" y="0" width="150" height="25"/>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField><reportElement x="250" y="0" width="100" height="25"/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<textField><reportElement x="350" y="0" width="100" height="25"/>
+				<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+			</textField>
+			<textField><reportElement x="450" y="0" width="100" height="25"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+
+
+</jasperReport>

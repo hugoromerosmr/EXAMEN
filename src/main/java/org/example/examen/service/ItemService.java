@@ -1,3 +1,6 @@
+/**
+ * Service class for managing items.
+ */
 package org.example.examen.service;
 
 import org.example.examen.models.Item;
@@ -8,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for managing items.
+ */
 @Service
 public class ItemService {
 
@@ -15,31 +21,21 @@ public class ItemService {
     private ItemRepository itemRepository;
 
     /**
-     * Encuentra un item por su ID.
+     * Retrieves all items.
      *
-     * @param id El ID del item a encontrar.
-     * @return Un Optional que contiene el item encontrado, o vacío si no se encuentra.
+     * @return a list of all items
+     */
+    public List<Item> obtenerTodos() {
+        return itemRepository.findAll();
+    }
+
+    /**
+     * Finds an item by its ID.
+     *
+     * @param id the ID of the item
+     * @return an Optional containing the item if found, or empty if not found
      */
     public Optional<Item> findById(String id) {
         return itemRepository.findById(id);
-    }
-
-    /**
-     * Cuenta el número total de items.
-     *
-     * @return Una cadena que representa el número total de items.
-     */
-    public String countItems() {
-        return "Total de items: " + itemRepository.count();
-    }
-
-    /**
-     * Cuenta el número de items con una puntuación mayor que el valor especificado.
-     *
-     * @param rate El umbral de puntuación.
-     * @return Una cadena que representa el número de items con una puntuación mayor que el valor especificado.
-     */
-    public String countItemsPuntuados(double rate) {
-        return "Total de items puntuados: " + itemRepository.countByRateGreaterThan(rate);
     }
 }

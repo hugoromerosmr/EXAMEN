@@ -7,30 +7,24 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Repository interface for managing Item entities.
+ */
 @Repository
 public interface ItemRepository extends MongoRepository<Item, String> {
 
     /**
-     * Encuentra items por categoría, ignorando mayúsculas y minúsculas.
+     * Retrieves all items from the repository.
      *
-     * @param categoria La categoría a buscar.
-     * @return Una lista de items que pertenecen a la categoría especificada.
+     * @return a list of all items
      */
-    List<Item> findByCategoryContainingIgnoreCase(String categoria);
+    public List<Item> findAll();
 
     /**
-     * Encuentra un item por su ID.
+     * Finds an item by its ID.
      *
-     * @param id El ID del item a encontrar.
-     * @return Un Optional que contiene el item encontrado, o vacío si no se encuentra.
+     * @param id the ID of the item
+     * @return an Optional containing the item if found, or empty if not found
      */
-    Optional<Item> findById(String id);
-
-    /**
-     * Cuenta el número de items con una puntuación mayor que el valor especificado.
-     *
-     * @param rate El umbral de puntuación.
-     * @return El número de items con una puntuación mayor que el valor especificado.
-     */
-    long countByRateGreaterThan(double rate);
+    public Optional<Item> findById(String id);
 }
